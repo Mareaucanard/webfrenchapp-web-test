@@ -1,6 +1,7 @@
 
 import { Alert } from "react-native"
-export default function HandleLoginError(msg: string)
+
+function HandleLoginError(msg: string)
 {
     switch (msg) {
         case "API error":
@@ -16,3 +17,5 @@ export default function HandleLoginError(msg: string)
             break
     }
 }
+
+export default HandleLoginError

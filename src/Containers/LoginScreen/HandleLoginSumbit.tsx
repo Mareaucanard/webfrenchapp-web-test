@@ -1,3 +1,4 @@
+import { navigate } from "@/Navigators/Root";
 import { fetchLogin } from "@/Services/AuthServices";
 import { Alert } from "react-native";
 import HandleLoginError from "./LoginError";
@@ -39,7 +40,7 @@ function LoginWithAPI(email: string, password: string) {
     console.log(request)
 }
 
-export default function HandleLoginSumbit(email: string, password: string) {
+function HandleLoginSumbit(email: string, password: string) {
     console.log('Form was submited with email ' + email + ' and password ' + password)
     if (email === '' || password === '') {
         console.log("Empty field(s)");
@@ -47,3 +48,5 @@ export default function HandleLoginSumbit(email: string, password: string) {
     }
     LoginWithAPI(email, password)
 }
+
+export default HandleLoginSumbit
