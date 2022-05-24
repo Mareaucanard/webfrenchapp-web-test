@@ -15,7 +15,7 @@ function HandleLoginSucess(email: string, token: string, refreshToken: string) {
     Alert.alert("Login success")
 }
 
-function LoginWithAPI(email: string, password: string): Object {
+function LoginWithAPI(email: string, password: string) {
     var request = fetchLogin({email: email, password: password})
 
     request.then(function (response) { // On sucess
@@ -27,18 +27,16 @@ function LoginWithAPI(email: string, password: string): Object {
         } else {
             HandleLoginError("Unkown reponse")
         }
-    })
-    request.catch(function (reason) {
-        if (reason === undefined || (reason.status <= 599 && reason.status >= 500)) {
+    }, function (error) { // On error
+        if (error === undefined || (error.status <= 599 && error.status >= 500)) {
             HandleLoginError("API error")
-        } else if (reason.status <= 499 && reason.status >= 400) {
+        } else if (error.status <= 499 && error.status >= 400) {
             HandleLoginError("User error")
         } else {
             HandleLoginError("Unkown error")
         }
     })
-
-    return request
+    console.log(request)
 }
 
 export default function HandleLoginSumbit(email: string, password: string) {
