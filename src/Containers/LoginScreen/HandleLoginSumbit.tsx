@@ -1,47 +1,44 @@
 import { fetchLogin } from "@/Services/AuthServices";
 import { Alert } from "react-native";
+import HandleLoginError from "./LoginError";
+
+
+// This is a placeholder
+// But I don't know how to 'switch pages'
+// It's not really switching pages because it's a mobile app but that's the point
+// I was thinking of using this function to switch kind of global variable
+// But I don't know how to do that cleanly
+// So for now I'm just going to use it to show an alert
+function LoginSucess(email: string, token: string, refreshToken: string) {
+    console.log(`Login success with email: ${email}.`)
+    console.log(`token: ${token}, refreshToken: ${refreshToken}`)
+    Alert.alert("Login success")
+}
 
 function LoginWithAPI(email: string, password: string): Object {
     var request = fetchLogin({email: email, password: password})
 
     request.then(function (response) { // On sucess
-        const { data, status } = response
-        if (status === 200) {
-            console.log("Login success")
+        const { data } = response
+        const { token, refreshToken } = data
+        if (token !== undefined && refreshToken !== undefined) {
             console.log(data)
-            return data
+            Alert.alert("Login success") // Needs to load the page with the news on it
         } else {
-            return {message: "Unkown reponse"}
+            HandleLoginError("Unkown reponse")
         }
     })
     request.catch(function (reason) {
         if (reason === undefined || (reason.status <= 599 && reason.status >= 500)) {
-            return {message: "API error"}
+            HandleLoginError("API error")
         } else if (reason.status <= 499 && reason.status >= 400) {
-            return {message: "User error"}
+            HandleLoginError("User error")
         } else {
-            return {message: "Unkown error"}
+            HandleLoginError("Unkown error")
         }
     })
 
     return request
-}
-
-function HandleLoginError(msg: string)
-{
-    switch (msg) {
-        case "API error":
-            Alert.alert("Oops!\nSomething went wrong with our API.\nSorry for the inconvinience.")
-            break
-        case "User error":
-            Alert.alert("Invalid credentials.")
-            break
-        case "Unkown error":
-        case "Unkown response":
-        default:
-            Alert.alert("Oops!\nSomething went terribly wrong!")
-            break
-    }
 }
 
 export default function HandleLoginSumbit(email: string, password: string) {
@@ -50,15 +47,5 @@ export default function HandleLoginSumbit(email: string, password: string) {
         console.log("Empty field(s)");
         return false
     }
-    var data = LoginWithAPI(email, password)
-
-    console.log(data)
-    // if (data === undefined) {
-    //     console.warn("Promise didn't complete yet");
-    //     return false
-    // }
-    // if (data.message !== undefined) {
-    //     HandleLoginError(data.message)
-    //     return false
-    // }
+    LoginWithAPI(email, password)
 }
