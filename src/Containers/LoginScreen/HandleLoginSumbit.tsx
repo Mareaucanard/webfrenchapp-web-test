@@ -3,17 +3,10 @@ import { fetchLogin } from "@/Services/AuthServices";
 import { Alert } from "react-native";
 import HandleLoginError from "./LoginError";
 
-
-// This is a placeholder
-// But I don't know how to 'switch pages'
-// It's not really switching pages because it's a mobile app but that's the point
-// I was thinking of using this function to switch kind of global variable
-// But I don't know how to do that cleanly
-// So for now I'm just going to use it to show an alert
 function HandleLoginSucess(email: string, token: string, refreshToken: string) {
     console.log(`Login success with email: ${email}.`)
     console.log(`token: ${token}, refreshToken: ${refreshToken}`)
-    Alert.alert("Login success")
+    navigate("ArticleList", {})
 }
 
 function LoginWithAPI(email: string, password: string) {
@@ -42,9 +35,13 @@ function LoginWithAPI(email: string, password: string) {
 
 function HandleLoginSumbit(email: string, password: string) {
     console.log('Form was submited with email ' + email + ' and password ' + password)
-    if (email === '' || password === '') {
-        console.log("Empty field(s)");
-        return false
+    if (email === '') {
+        Alert.alert("Email is required")
+        return
+    }
+    if (password === '') {
+        Alert.alert("Password is required")
+        return
     }
     LoginWithAPI(email, password)
 }
