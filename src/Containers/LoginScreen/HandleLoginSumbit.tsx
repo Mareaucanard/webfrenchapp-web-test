@@ -9,7 +9,7 @@ import HandleLoginError from "./LoginError";
 // I was thinking of using this function to switch kind of global variable
 // But I don't know how to do that cleanly
 // So for now I'm just going to use it to show an alert
-function LoginSucess(email: string, token: string, refreshToken: string) {
+function HandleLoginSucess(email: string, token: string, refreshToken: string) {
     console.log(`Login success with email: ${email}.`)
     console.log(`token: ${token}, refreshToken: ${refreshToken}`)
     Alert.alert("Login success")
@@ -23,7 +23,7 @@ function LoginWithAPI(email: string, password: string): Object {
         const { token, refreshToken } = data
         if (token !== undefined && refreshToken !== undefined) {
             console.log(data)
-            Alert.alert("Login success") // Needs to load the page with the news on it
+            HandleLoginSucess(email, token, refreshToken)
         } else {
             HandleLoginError("Unkown reponse")
         }
