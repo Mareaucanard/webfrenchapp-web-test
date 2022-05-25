@@ -2,34 +2,26 @@ import { navigate } from "@/Navigators/Root";
 import { fetchLogin } from "@/Services/AuthServices";
 import { Alert } from "react-native";
 import HandleLoginError from "./LoginError";
-import authReducer, { AuthState } from "@/Reducers/AuthReducer";
 
-
-
-function HandleLoginSucess(email: string, token: string, refreshToken: string) {
-    var state: AuthState = {
-        isLoading: false,
-        token: token,
-        refreshToken: refreshToken
-    }
-
-    console.log(authReducer)
-    navigate("ArticleList", {})
+function HandleLoginSucess(token: string, refreshToken: string) {
+    navigate("ArticleList", {token: token, refreshToken: refreshToken})
 }
 
 function LoginWithAPI(email: string, password: string) {
     var request = fetchLogin({email: email, password: password})
 
-    request.then(function (response) { // On sucess
+    request.then(function (response) {
+        console.log("Got response")
         const { data } = response
         const { token, refreshToken } = data
         if (token !== undefined && refreshToken !== undefined) {
-            console.log(data)
-            HandleLoginSucess(email, token, refreshToken)
+            HandleLoginSucess(token, refreshToken)
         } else {
             HandleLoginError("Unkown reponse")
         }
-    }, function (error) { // On error
+    }, function (error) {
+        console.log("Got error")
+        console.log(error)
         if (error === undefined || (error.status <= 599 && error.status >= 500)) {
             HandleLoginError("API error")
         } else if (error.status <= 499 && error.status >= 400) {
@@ -38,7 +30,6 @@ function LoginWithAPI(email: string, password: string) {
             HandleLoginError("Unkown error")
         }
     })
-    console.log(request)
 }
 
 function HandleLoginSumbit(email: string, password: string) {
@@ -51,7 +42,8 @@ function HandleLoginSumbit(email: string, password: string) {
         Alert.alert("Password is required")
         return
     }
-    LoginWithAPI(email, password)
+    HandleLoginSucess("BadToken", "BadToken")
+    //LoginWithAPI(email, password)
 }
 
 export default HandleLoginSumbit
