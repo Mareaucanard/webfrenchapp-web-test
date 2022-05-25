@@ -2,10 +2,18 @@ import { navigate } from "@/Navigators/Root";
 import { fetchLogin } from "@/Services/AuthServices";
 import { Alert } from "react-native";
 import HandleLoginError from "./LoginError";
+import authReducer, { AuthState } from "@/Reducers/AuthReducer";
+
+
 
 function HandleLoginSucess(email: string, token: string, refreshToken: string) {
-    console.log(`Login success with email: ${email}.`)
-    console.log(`token: ${token}, refreshToken: ${refreshToken}`)
+    var state: AuthState = {
+        isLoading: false,
+        token: token,
+        refreshToken: refreshToken
+    }
+
+    console.log(authReducer)
     navigate("ArticleList", {})
 }
 
