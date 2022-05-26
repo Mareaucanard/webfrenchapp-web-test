@@ -17,7 +17,6 @@ export default async (params: loginParamsProps) => {
     const response = await api.post('/auth/login', params)
 
     setTimeout(() => {
-        console.log('Réponse: ', response)
     }, 3000)
 
     return response.data
