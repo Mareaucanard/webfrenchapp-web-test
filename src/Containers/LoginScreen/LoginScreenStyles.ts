@@ -2,6 +2,7 @@ import { StyleSheet } from 'react-native'
 import Metrics from '@/Theme/Metrics'
 import { Colors } from '@/Theme/Variables'
 import Fonts from '@/Theme/FontsTypes'
+import { withDecay } from 'react-native-reanimated'
 
 export default StyleSheet.create({
     input: {
@@ -85,4 +86,12 @@ export default StyleSheet.create({
         color: Colors.text,
         opacity: 0.7,
     },
+    textInput: {
+        fontFamily: Fonts.type.light,
+        fontSize: 16,
+        textAlign: 'left',
+        color: Colors.text
+    },
+    button: {
+    }
 })
