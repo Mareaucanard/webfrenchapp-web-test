@@ -1,27 +1,32 @@
-import React from "react"
-import { View, Text } from "react-native";
+import React, { useState, useEffect } from "react"
+import { View, Text, Button } from "react-native";
 
 import { Common } from "@/Theme";
 import styles from "./ArticleListStyles"
 import GetNewsList from "./FetchNews";
+import BasicButtonStyles from "@/Components/BasicButton/BasicButtonStyles";
+import { BasicButton } from "@/Components";
 
 function Article(props: any) {
+    const { news_data } = props
     return (
         <View style={styles.content}>
-            <Text style={styles.sectionTitle}>{props.title}</Text>
+            <Text style={styles.sectionTitle}>{news_data.title}</Text>
+            <Text>{news_data.body}</Text>
         </View>
     )
 }
 
-function ArticleList(token: string) {
-    var result = GetNewsList(token)
+function ArticleList(props: Object) {
+    var [news, updateNews] = useState(undefined)
+    useEffect(() => GetNewsList(props.token, updateNews), []) // This is here to only GetNewsList once, else it would infinite loop
 
-    if (result === undefined) {
+    if (news === undefined) {
         return <Text>Chargement...</Text>
-    } else if (result === false) {
+    } else if (news === false) {
         return <Text>Erreur</Text>
     } else {
-        return result.data.map((value) => <Article title={value} />)
+        return news.map((news_data: Object) => <Article news_data={news_data} key={news_data.id} />)
     }
 }
 
