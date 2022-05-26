@@ -11,7 +11,6 @@ function LoginWithAPI(email: string, password: string) {
     var request = fetchLogin({email: email, password: password})
 
     request.then(function (response) {
-        console.log("Got response")
         const { data } = response
         const { token, refreshToken } = data
         if (token !== undefined && refreshToken !== undefined) {
@@ -20,8 +19,6 @@ function LoginWithAPI(email: string, password: string) {
             HandleLoginError("Unkown reponse")
         }
     }, function (error) {
-        console.log("Got error")
-        console.log(error)
         if (error === undefined || (error.status <= 599 && error.status >= 500)) {
             HandleLoginError("API error")
         } else if (error.status <= 499 && error.status >= 400) {
@@ -42,8 +39,7 @@ function HandleLoginSumbit(email: string, password: string) {
         Alert.alert("Password is required")
         return
     }
-    HandleLoginSucess("BadToken", "BadToken")
-    //LoginWithAPI(email, password)
+    LoginWithAPI(email, password)
 }
 
 export default HandleLoginSumbit

@@ -19,11 +19,11 @@ const LoginForm = () => {
         <View style={[styles.contentContainer]}>
             <Text style={styles.title}>Connexion</Text>
 
-            <Text style={styles.sectionTitle}>Adress email</Text>
-            <TextInput style={[Common.basicShadow, Common.textInput, styles.input, styles.mailContainer]} value={email} onChangeText={setEmail}/>
+            <Text style={[styles.mailContainer, styles.sectionTitle]}>Adress email</Text>
+            <TextInput style={[Common.textInput, styles.input, Common.basicShadow]} value={email} onChangeText={setEmail}/>
 
-            <Text style={styles.sectionTitle}>Mot de passe</Text>
-            <TextInput style={[Common.basicShadow, Common.textInput, styles.input, styles.passwordContainer]} value={password} onChangeText={setPassword}/>
+            <Text style={[styles.sectionTitle, styles.passwordContainer]}>Mot de passe</Text>
+            <TextInput style={[Common.textInput, styles.input, Common.basicShadow]} value={password} onChangeText={setPassword}/>
 
             <BasicButton text={"Se connecter"} onPress={handleSubmit} style={[Common.backgroundPrimary]}/>
         </View>
