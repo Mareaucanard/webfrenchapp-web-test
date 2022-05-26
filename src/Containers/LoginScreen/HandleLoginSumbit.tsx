@@ -4,7 +4,7 @@ import { Alert } from "react-native";
 import HandleLoginError from "./LoginError";
 
 function HandleLoginSucess(token: string, refreshToken: string) {
-    navigate("ArticleList", {token: token, refreshToken: refreshToken})
+    navigate("ArticleListPage", {token: token, refreshToken: refreshToken})
 }
 
 function LoginWithAPI(email: string, password: string) {
