@@ -13,7 +13,6 @@ function GetNewsList(token: string, updateNews: Function): void {
 
     const response = FetchNews(token)
     response.then(function (response) {
-        console.log(response.data)
         updateNews(response.data)
     }, function (error) {
         updateNews(false)
