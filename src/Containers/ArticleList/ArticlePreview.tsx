@@ -1,8 +1,12 @@
+import { navigate } from "@/Navigators/Root"
 import React from "react"
 import { View, ImageBackground, Text } from "react-native"
 
 import styles from "./ArticleListStyles"
 
+function HadnleOnClick(news_data: any) {
+    navigate("ArticlePage", { news_data })
+}
 
 function ArticlePreview(props: any) {
     const { news_data } = props
@@ -11,7 +15,7 @@ function ArticlePreview(props: any) {
 
     return (
         <View style={styles.content}
-        onStartShouldSetResponder={() => console.log("Clicked data" + news_data.title)}>
+        onStartShouldSetResponder={() => HadnleOnClick(news_data)}>
             <ImageBackground resizeMode="cover" source={{uri: news_data.image}} style={styles.content}>
             <Text style={styles.sectionTitle}>{news_data.title}</Text>
             <Text>{date_string}</Text>
