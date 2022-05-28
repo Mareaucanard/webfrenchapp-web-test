@@ -18,7 +18,6 @@ function GetMonthName(month: number) {
 function TimestampToString(timestamp: number) {
     var date = new Date(timestamp)
     var result = GetDayName(date.getDay()) + " " + date.getDate() + " " + GetMonthName(date.getMonth()) + " " + date.getFullYear()
-    console.log(result)
     return result
 }
 
