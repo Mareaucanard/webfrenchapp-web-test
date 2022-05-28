@@ -38,11 +38,45 @@ export default StyleSheet.create({
         color: Colors.text,
         paddingTop: Metrics.heightPercentageToDP('3%'),
     },
-    sectionTitle: {
+    newsTitle: {
         fontFamily: Fonts.type.medium,
-        fontSize: 14,
+        fontSize: 18,
+        color: Colors.white,
+        position: 'absolute',
+        bottom: Metrics.heightPercentageToDP('1%'),
+        paddingLeft: Metrics.paddingHorizontal,
+        textAlign: 'left'
+    },
+    articlePreview: {
+        width: '100%',
+        paddingBottom: Metrics.heightPercentageToDP('5%'),
+    },
+    newsImage: {
+        overflow: 'hidden',
+        borderRadius: 15,
+        borderWidth: 1,
+        height: Metrics.heightPercentageToDP('25%'),
+        borderColor: Colors.transparent,
+        backgroundColor: '#1741658E',
+        borderRightColor: Colors.white,
+        tintColor: 'rgba(255,255,255,0.5)',
+    },
+    dateText: {
+        fontFamily: Fonts.type.base,
+        fontStyle: 'italic',
+        fontSize: 15,
         color: Colors.text,
-        opacity: 0.4,
-        marginBottom: 10,
+        textAlign: 'left'
+    },
+    body: {
+        fontFamily: Fonts.type.base,
+        fontSize: 16,
+        color: Colors.text,
+        paddingTop: Metrics.heightPercentageToDP('2%'),
+        paddingBottom: Metrics.heightPercentageToDP('20%'),
+    },
+    tintEffect: {
+        flex: 1,
+        backgroundColor: '#1741658E',
     }
 })

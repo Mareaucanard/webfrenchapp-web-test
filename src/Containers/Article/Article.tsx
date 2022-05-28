@@ -1,24 +1,26 @@
 import React from "react"
-import { View, Text, ImageBackground } from "react-native"
+import { Text } from "react-native"
+import { ScrollView } from "react-native-gesture-handler";
 
 import styles from './ArticleStyles'
+import ArticleImage from "./ArticleImage";
+import TimestampToString from "@/Tools/TimestampToString";
+import BasicButtonStyles from "@/Components/BasicButton/BasicButtonStyles";
+import { Common } from "@/Theme";
 
 function Article(props: any) {
     const { news_data } = props
-    console.log(news_data.image)
 
     if (news_data === undefined) {
         return <Text>Couldn't article D:</Text>
     }
-    const date_string = new Date(news_data.date).toLocaleDateString()
+    const date_string = TimestampToString(news_data.date)
     return (
-        <View>
-            <ImageBackground resizeMode="cover" source={{uri: news_data.image}} style={styles.content}>
-                <Text style={styles.sectionTitle}>{news_data.title}</Text>
-            </ImageBackground>
-            <Text>{date_string}</Text>
-            <Text>{news_data.content}</Text>
-        </View>
+        <ScrollView style={Common.basicPage}>
+            <ArticleImage news_data={news_data}/>
+            <Text style={styles.dateText}>{date_string}</Text>
+            <Text style={styles.body}>{news_data.body}</Text>
+        </ScrollView>
     )
 }
 

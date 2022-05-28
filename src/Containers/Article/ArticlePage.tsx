@@ -4,6 +4,7 @@ import { View, Text } from "react-native"
 import { Common } from "@/Theme"
 import Article from "./Article"
 import styles from './ArticleStyles'
+import { GoBackButton } from "@/Components";
 
 function ArticlePage(props: any) {
     const { route } = props
@@ -12,8 +13,9 @@ function ArticlePage(props: any) {
 
     return (
         <View style={Common.basicPage}>
+            <GoBackButton/>
             <Text style={styles.title}>Article</Text>
-            <Article news_data={news_data} />
+            <Article news_data={news_data}/>
         </View>
     )
 }
