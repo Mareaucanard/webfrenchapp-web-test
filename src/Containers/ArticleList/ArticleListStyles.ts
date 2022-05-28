@@ -59,6 +59,7 @@ export default StyleSheet.create({
         borderColor: Colors.transparent,
         backgroundColor: '#1741658E',
         borderRightColor: Colors.white,
+        tintColor: 'rgba(255,255,255,0.5)',
     },
     overlay: {
     },
@@ -74,6 +75,7 @@ export default StyleSheet.create({
         opacity: 0.67,
         backgroundColor: "#071D2F",
         height: 25,
+        position: 'absolute',
     },
     datePreviewText: {
         fontFamily: Fonts.type.medium,
@@ -81,6 +83,9 @@ export default StyleSheet.create({
         color: Colors.white,
         textAlign: 'center',
         paddingTop: Metrics.heightPercentageToDP('0.5%'),
+    },
+    tintEffect: {
+        flex: 1,
+        backgroundColor: '#1741658E',
     }
-
 })

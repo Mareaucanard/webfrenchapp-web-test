@@ -28,6 +28,7 @@ function ArticlePreview(props: any) {
         <View style={styles.articlePreview}>
             <TouchableHighlight onPress={() => HadnleOnClick(news_data)} underlayColor={Colors.transparent}>
                 <ImageBackground resizeMode="cover" source={{uri: news_data.image}} style={styles.imagePreview}>
+                    <View style={styles.tintEffect}></View>
                     <DatePreview date={date_string}/>
                     <Text style={styles.previewTitle}>{news_data.title}</Text>
                 </ImageBackground>
