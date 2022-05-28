@@ -54,7 +54,7 @@ export default StyleSheet.create({
         paddingTop: Metrics.heightPercentageToDP('3%'),
     },
     mailContainer: {
-        marginTop: 37,
+        marginTop: 63.25,
     },
     passwordContainer: {
         marginTop: 19,
@@ -93,5 +93,8 @@ export default StyleSheet.create({
         color: Colors.text
     },
     button: {
+        width: '100%',
+        position: 'relative',
+        marginTop: '40%',
     }
 })
