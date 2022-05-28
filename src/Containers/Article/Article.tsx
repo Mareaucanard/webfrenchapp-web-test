@@ -5,6 +5,7 @@ import styles from './ArticleStyles'
 
 function Article(props: any) {
     const { news_data } = props
+    console.log(news_data.image)
 
     if (news_data === undefined) {
         return <Text>Couldn't article D:</Text>

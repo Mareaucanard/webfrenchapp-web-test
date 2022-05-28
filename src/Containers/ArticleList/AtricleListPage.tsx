@@ -5,6 +5,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import { Common } from "@/Theme"
 import styles from './ArticleListStyles'
 import ArticleList from "./ArticleList";
+import { GoBackButton } from "@/Components";
 
 function ArticleListPage(parameters: any) {
     const { route } = parameters
@@ -13,6 +14,7 @@ function ArticleListPage(parameters: any) {
 
     return (
         <View style={Common.basicPage}>
+            <GoBackButton/>
             <Text style={styles.title}>Actualité</Text>
             <ScrollView style={Common.basicPage}>
                 <ArticleList token={token}/>

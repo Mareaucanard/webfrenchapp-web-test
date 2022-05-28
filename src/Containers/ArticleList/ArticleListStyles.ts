@@ -38,11 +38,49 @@ export default StyleSheet.create({
         color: Colors.text,
         paddingTop: Metrics.heightPercentageToDP('3%'),
     },
-    sectionTitle: {
+    previewTitle: {
         fontFamily: Fonts.type.medium,
-        fontSize: 14,
-        color: Colors.text,
-        opacity: 0.4,
-        marginBottom: 10,
+        fontSize: 18,
+        color: Colors.white,
+        position: 'absolute',
+        bottom: Metrics.heightPercentageToDP('1%'),
+        paddingLeft: Metrics.paddingHorizontal,
+        textAlign: 'left'
+    },
+    articlePreview: {
+        width: '100%',
+        paddingBottom: Metrics.heightPercentageToDP('5%'),
+    },
+    imagePreview: {
+        overflow: 'hidden',
+        borderRadius: 15,
+        borderWidth: 1,
+        height: Metrics.heightPercentageToDP('25%'),
+        borderColor: Colors.transparent,
+        backgroundColor: '#1741658E',
+        borderRightColor: Colors.white,
+    },
+    overlay: {
+    },
+    datePreview: {
+        borderColor: Colors.transparent,
+        borderWidth: 1,
+        borderRadius: 17,
+        alignSelf: 'flex-end',
+        top: Metrics.heightPercentageToDP('1%'),
+        right: Metrics.heightPercentageToDP('1%'),
+        paddingLeft: Metrics.paddingHorizontal,
+        paddingRight: Metrics.paddingHorizontal,
+        opacity: 0.67,
+        backgroundColor: "#071D2F",
+        height: 25,
+    },
+    datePreviewText: {
+        fontFamily: Fonts.type.medium,
+        fontSize: 11,
+        color: Colors.white,
+        textAlign: 'center',
+        paddingTop: Metrics.heightPercentageToDP('0.5%'),
     }
+
 })
