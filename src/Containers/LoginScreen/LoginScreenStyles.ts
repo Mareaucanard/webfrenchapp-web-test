@@ -94,7 +94,8 @@ export default StyleSheet.create({
     },
     button: {
         width: '100%',
-        position: 'relative',
-        marginTop: '40%',
+        position: 'absolute',
+        alignSelf: 'center',
+        bottom: Metrics.heightPercentageToDP('7.5%'),
     }
 })
