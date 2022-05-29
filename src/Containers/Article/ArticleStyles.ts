@@ -84,5 +84,6 @@ export default StyleSheet.create({
     },
     secondShare: {
         alignSelf: 'flex-start',
+        paddingBottom: Metrics.heightPercentageToDP('10%'),
     }
 })
