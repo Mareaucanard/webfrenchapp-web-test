@@ -8,7 +8,6 @@ import { TouchableHighlight } from "react-native-gesture-handler";
 const image = require("@/Assets/Images/Icons/Basic/left-arrow.png")
 
 function my_function() {
-    console.log("GoBackButton was pressed")
     navigationRef.current?.dispatch(StackActions.pop());
     return true
 }
