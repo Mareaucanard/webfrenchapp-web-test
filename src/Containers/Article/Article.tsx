@@ -1,15 +1,24 @@
 import React from "react"
-import { Text } from "react-native"
+import { Text, View } from "react-native"
 import { ScrollView } from "react-native-gesture-handler";
 
 import styles from './ArticleStyles'
 import ArticleImage from "./ArticleImage";
 import TimestampToString from "@/Tools/TimestampToString";
-import BasicButtonStyles from "@/Components/BasicButton/BasicButtonStyles";
 import { Common } from "@/Theme";
+import ShareButton from "@/Components/ShareButton/ShareButton";
+
+function GenerateShareContent(article: any) {
+    return ({
+        message: "Regarde cet article!",
+        url: "Placeholder",
+        title: article.title,
+    })
+}
 
 function Article(props: any) {
     const { news_data } = props
+    const content = GenerateShareContent(news_data)
 
     if (news_data === undefined) {
         return <Text>Couldn't article D:</Text>
@@ -18,8 +27,12 @@ function Article(props: any) {
     return (
         <ScrollView style={Common.basicPage}>
             <ArticleImage news_data={news_data}/>
-            <Text style={styles.dateText}>{date_string}</Text>
+            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                <Text style={styles.dateText}>{date_string}</Text>
+                <ShareButton style={styles.firstShare} content={content}/>
+            </View>
             <Text style={styles.body}>{news_data.body}</Text>
+            <ShareButton style={styles.secondShare} content={content}/>
         </ScrollView>
     )
 }

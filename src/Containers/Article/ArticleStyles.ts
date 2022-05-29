@@ -73,10 +73,16 @@ export default StyleSheet.create({
         fontSize: 16,
         color: Colors.text,
         paddingTop: Metrics.heightPercentageToDP('2%'),
-        paddingBottom: Metrics.heightPercentageToDP('20%'),
+        paddingBottom: Metrics.heightPercentageToDP('2%'),
     },
     tintEffect: {
         flex: 1,
         backgroundColor: '#1741658E',
+    },
+    firstShare: {
+        alignContent: 'flex-end',
+    },
+    secondShare: {
+        alignSelf: 'flex-start',
     }
 })
