@@ -16,7 +16,7 @@ function ArticleListPage(parameters: any) {
         <View style={Common.basicPage}>
             <GoBackButton/>
             <Text style={styles.title}>Actualité</Text>
-            <ScrollView style={Common.basicPage}>
+            <ScrollView style={styles.content}>
                 <ArticleList token={token}/>
             </ScrollView>
         </View>

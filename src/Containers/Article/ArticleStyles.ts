@@ -25,10 +25,6 @@ export default StyleSheet.create({
     },
     content: {
         width: '100%',
-        justifyContent: 'space-between',
-        paddingBottom: Metrics.isIphoneX()
-            ? Metrics.heightPercentageToDP('5%')
-            : Metrics.heightPercentageToDP('1%'),
     },
     title: {
         fontFamily: Fonts.type.bold,
@@ -84,6 +80,6 @@ export default StyleSheet.create({
     },
     secondShare: {
         alignSelf: 'flex-start',
-        paddingBottom: Metrics.heightPercentageToDP('10%'),
+        paddingBottom: Metrics.heightPercentageToDP('2%'),
     }
 })

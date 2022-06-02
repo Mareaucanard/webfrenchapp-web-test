@@ -25,10 +25,9 @@ export default StyleSheet.create({
     },
     content: {
         width: '100%',
-        justifyContent: 'space-between',
         paddingBottom: Metrics.isIphoneX()
             ? Metrics.heightPercentageToDP('5%')
-            : Metrics.heightPercentageToDP('1%'),
+            : Metrics.heightPercentageToDP('0.5%'),
     },
     title: {
         fontFamily: Fonts.type.bold,
@@ -49,7 +48,8 @@ export default StyleSheet.create({
     },
     articlePreview: {
         width: '100%',
-        paddingBottom: Metrics.heightPercentageToDP('5%'),
+        paddingBottom: Metrics.heightPercentageToDP('2.5%'),
+        paddingTop: Metrics.heightPercentageToDP('2.5%'),
     },
     imagePreview: {
         overflow: 'hidden',

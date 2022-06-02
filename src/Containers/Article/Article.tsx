@@ -25,7 +25,7 @@ function Article(props: any) {
     }
     const date_string = TimestampToString(news_data.date)
     return (
-        <ScrollView style={Common.basicPage}>
+        <ScrollView style={styles.content}>
             <ArticleImage news_data={news_data}/>
             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                 <Text style={styles.dateText}>{date_string}</Text>
