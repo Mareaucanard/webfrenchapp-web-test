@@ -24,7 +24,7 @@ const LoginForm = () => {
                 <TextInput style={[Common.textInput, styles.input, styles.textInput]} value={email} onChangeText={setEmail}/>
 
                 <Text style={[styles.passwordContainer, styles.sectionTitle, Common.basicShadow]}>Mot de passe</Text>
-                <TextInput style={[Common.textInput, styles.input, styles.textInput]} value={password} onChangeText={setPassword}/>
+                <TextInput style={[Common.textInput, styles.input, styles.textInput]} value={password} onChangeText={setPassword} secureTextEntry={true}/>
             </View>
             <BasicButton text={"Se connecter"} onPress={handleSubmit} style={[Common.backgroundPrimary, styles.button]}/>
         </View>
